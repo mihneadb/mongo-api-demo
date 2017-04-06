@@ -16,14 +16,9 @@ def parse_comment(text):
 
     for line in text.splitlines():
         line = line.strip()
-        if line == 'Pro:':
-            type = constants.PRO
-            continue
-        elif line == 'Contra:':
-            type = constants.CON
-            continue
-        elif line == 'Altele:':
-            type = constants.OTHER
+
+        if line in constants.HEADINGS:
+            type = constants.HEADINGS[line]
             continue
 
         data['text'] += '%s\n' % line

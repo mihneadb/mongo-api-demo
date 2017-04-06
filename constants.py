@@ -13,3 +13,9 @@ SENTIMENTS = {
     1: POSITIVE
 }
 
+HEADINGS = {
+    'Pro:': PRO,
+    'Contra:': CON,
+    'Altele:': OTHER
+}
+

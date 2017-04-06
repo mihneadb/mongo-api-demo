@@ -29,10 +29,6 @@ This will connect to the Mongo container and start a shell. From here, you can
 take a look at the data:
 
 ```javascript
-> show dbs
-admin  0.000GB
-local  0.000GB
-test   0.000GB
 > use test
 switched to db test
 > db.getCollectionNames()

@@ -11,6 +11,9 @@ Demo for http://cdl.rosedu.org/.
 ```bash
 docker-compose build
 docker-compose up
+
+# If you want to clean the stored data after this run.
+docker-compose rm -f
 ```
 
 This will start a Mongo container and a fetcher container. The fetcher will

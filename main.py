@@ -2,10 +2,11 @@ from fetch import get_comments, get_sentiment
 from models import Comment
 
 
-if __name__ == '__main__':
+PRODUCT_URL = 'http://www.pcgarage.ro/televizoare-led/samsung/32j5100-seria-j5100-80cm-negru-full-hd/comentarii/'
 
-    url = 'http://www.pcgarage.ro/televizoare-led/samsung/32j5100-seria-j5100-80cm-negru-full-hd/comentarii/'
-    comments = get_comments(url)
+
+if __name__ == '__main__':
+    comments = get_comments(PRODUCT_URL)
 
     for comment in comments:
         c = Comment(text=comment.values()[0], type=comment.keys()[0])

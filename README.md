@@ -50,14 +50,24 @@ switched to db test
 How many cons were fetched?
 
 ```javascript
-> db.comment.find({"type": "con"}).count()
+> db.comment.find({type: "con"}).count()
 16
 ```
 
 How many positive comments were misannotated?
 
 ```javascript
-> db.comment.find({"type": "pro", "sentiment": "negative"}).count()
+> db.comment.find({type: "pro", sentiment: "negative"}).count()
 6
+```
+
+How many comments contain a given word?
+
+```javascript
+// Adding a text index first.
+> db.comment.createIndex({text: "text"})
+
+> db.comment.find({$text: {$search: "bun"}}).count()
+7
 ```
 

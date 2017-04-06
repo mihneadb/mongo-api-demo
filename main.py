@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from fetch import get_comments, get_sentiment
 from models import Comment
 

@@ -23,7 +23,7 @@ def parse_comment(text):
 
         if not data[key]:
             data[key]
-        data[key] += ('%s\n' % line)
+        data[key] += '%s\n' % line
 
     return data
 

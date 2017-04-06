@@ -9,8 +9,7 @@ if __name__ == '__main__':
     comments = get_comments(PRODUCT_URL)
 
     for comment in comments:
-        c = Comment(text=comment.values()[0], type=comment.keys()[0])
-        c.text = c.text.strip()
+        c = Comment(**comment)
         c.sentiment = get_sentiment(c.text)
         c.save()
 

@@ -7,28 +7,38 @@ import constants
 
 
 def parse_comment(text):
+    """Given raw comment data, formats it as a dict.
+
+    Returns dicts such as `{'type': 'pro', 'text': 'foo'}`.
+    """
+
     data = defaultdict(str)
 
     for line in text.splitlines():
         line = line.strip()
         if line == 'Pro:':
-            key = constants.PRO
+            type = constants.PRO
             continue
         elif line == 'Contra:':
-            key = constants.CON
+            type = constants.CON
             continue
         elif line == 'Altele:':
-            key = constants.OTHER
+            type = constants.OTHER
             continue
 
-        if not data[key]:
-            data[key]
-        data[key] += '%s\n' % line
+        data['text'] += '%s\n' % line
 
+    data['type'] = type
+    data['text'] = data['text'].strip()
     return data
 
 
 def get_comments(url):
+    """Fetches comments from a `/comentarii/` edge on PCGarage.
+
+    Returns a list of dicts. See `parse_comment`.`.
+    """
+
     r = requests.get(url)
     bs = BeautifulSoup(r.text, 'html.parser')
 
@@ -49,6 +59,8 @@ def get_comments(url):
 
 
 def get_sentiment(text):
+    """Calls external API to detect the sentiment of `text`."""
+
     data = {'text': text}
     r = requests.post(constants.SENTIMENT_API, json=data)
 

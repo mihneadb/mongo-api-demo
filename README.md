@@ -3,7 +3,7 @@
 Simple project showing off how to integrate an external API and store data
 into Mongo.
 
-Demo for http://cdl.rosedu.org/.
+Demo for http://cdl.rosedu.org/. Slides [here](https://github.com/mihneadb/mongo-api-demo/blob/master/slides.pdf).
 
 
 ## How to run

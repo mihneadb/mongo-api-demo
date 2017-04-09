@@ -31,7 +31,7 @@ def parse_comment(text):
 def get_comments(url):
     """Fetches comments from a `/comentarii/` edge on PCGarage.
 
-    Returns a list of dicts. See `parse_comment`.`.
+    Returns a list of dicts. See `parse_comment`.
     """
 
     r = requests.get(url)
